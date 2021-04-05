@@ -8,7 +8,7 @@ class ErrorReport:
         self.had_error = False
 
     def report(self, line, where, message):
-        print("[Line " + line + "] Err" + where + ": " + message)
+        print("[Line " + str(line) + "] Err" + where + ": " + message)
 
     def error(self, line, message):
         self.report(line, "", message)

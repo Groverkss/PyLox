@@ -4,6 +4,8 @@ from TokenType import TokenType
 from ErrorReport import ErrorReport
 from Scanner import Scanner
 
+from pprint import pprint
+
 
 class PyLox:
     """
@@ -45,12 +47,13 @@ class PyLox:
                 print("Bye!")
                 sys.exit(0)
 
-            print(line)
-            # self.run(line)
+            self.run(line)
 
     def run(self, source):
-        scanner = Scanner(source)
+        scanner = Scanner(source, self.error_report)
         tokens = scanner.scan_tokens()
+
+        pprint([str(token) for token in tokens])
 
 
 if __name__ == "__main__":
