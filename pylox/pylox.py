@@ -3,6 +3,7 @@ import sys
 from TokenType import TokenType
 from ErrorReport import ErrorReport
 from Scanner import Scanner
+from Parser import Parser
 
 from pprint import pprint
 
@@ -53,7 +54,13 @@ class PyLox:
         scanner = Scanner(source, self.error_report)
         tokens = scanner.scan_tokens()
 
-        pprint([str(token) for token in tokens])
+        parser = Parser(tokens, self.error_report)
+        expression = parser.parse()
+
+        if self.error_report.had_error:
+            return
+
+        print(expression)
 
 
 if __name__ == "__main__":

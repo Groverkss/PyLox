@@ -9,6 +9,6 @@ class Token:
 
     def __str__(self):
         if self.lexeme:
-            return self.type.name + ": " + self.lexeme
+            return self.lexeme
         else:
             return self.type.name
