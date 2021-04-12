@@ -93,6 +93,8 @@ class Parser:
             self.consume(TokenType.RIGHT_PAREN, "Expect ')' after expression.")
             return Expr.Grouping(expr)
 
+        self.consume(None, "Unexpected token")
+
     def consume(self, token_type, message):
         if self.check(token_type):
             return self.advance()

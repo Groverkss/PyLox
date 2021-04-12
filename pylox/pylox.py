@@ -51,6 +51,8 @@ class PyLox:
             self.run(line)
 
     def run(self, source):
+        self.error_report.had_error = False
+
         scanner = Scanner(source, self.error_report)
         tokens = scanner.scan_tokens()
 
