@@ -102,7 +102,7 @@ class Parser:
         raise self.error(self.peek(), message)
 
     def error(self, token, message):
-        self.error_report.error(token, message)
+        self.error_report.token_error(token, message)
         return SyntaxError()
 
     def match(self, *token_types):

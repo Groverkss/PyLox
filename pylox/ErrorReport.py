@@ -17,6 +17,7 @@ class ErrorReport:
         self.had_error = True
 
     def token_error(self, token, message):
+        self.had_error = True
         if token.type == TokenType.EOF:
             self.report(token.line, " at end", message)
         else:

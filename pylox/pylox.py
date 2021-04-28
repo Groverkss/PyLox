@@ -62,7 +62,8 @@ class PyLox:
         if self.error_report.had_error:
             return
 
-        print(expression)
+        result = expression.interpret()
+        print(result)
 
 
 if __name__ == "__main__":
